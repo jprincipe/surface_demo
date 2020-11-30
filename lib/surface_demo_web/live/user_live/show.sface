@@ -1,0 +1,22 @@
+<h1>Show User</h1>
+
+<Modal :if={{@live_action in [:edit]}}  id="modal"  title={{ @page_title }} return_to={{Routes.user_show_path(@socket, :show, @user)}}>
+  <FormComponent id={{ @user.id }} action={{ @live_action }} user={{ @user }} return_to={{ Routes.user_show_path(@socket, :show, @user) }}/>
+</Modal>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    {{ @user.name }}
+  </li>
+
+  <li>
+    <strong>Age:</strong>
+    {{ @user.age }}
+  </li>
+
+</ul>
+
+<span><LivePatch label="Edit" to={{Routes.user_show_path(@socket, :edit, @user) }} class="button"/></span>
+<span><LiveRedirect label="Back" to={{Routes.user_index_path(@socket, :index) }}/></span>

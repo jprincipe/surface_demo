@@ -1,0 +1,14 @@
+<Form for={{ assigns.changeset }} change="validate" submit="save">
+  <Field name="name">
+    <Label/>
+    <TextInput/>
+    <ErrorTag class="invalid-feedback"/>
+  </Field>
+  <Field name="age" class="field">
+    <Label>Age</Label>
+    <NumberInput/>
+    <ErrorTag class="invalid-feedback"/>
+  </Field>
+
+  <Submit label="Save"/>
+</Form>

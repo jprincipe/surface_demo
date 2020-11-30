@@ -1,5 +1,9 @@
 defmodule SurfaceDemoWeb.UserLive.Show do
-  use SurfaceDemoWeb, :live_view
+  use SurfaceDemoWeb, :surface_view
+
+  alias SurfaceDemoWeb.ModalComponent, as: Modal
+  alias SurfaceDemoWeb.UserLive.FormComponent
+  alias Surface.Components.{LivePatch, LiveRedirect}
 
   alias SurfaceDemo.Accounts
 

@@ -1,7 +1,14 @@
 defmodule SurfaceDemoWeb.UserLive.FormComponent do
-  use SurfaceDemoWeb, :live_component
+  use SurfaceDemoWeb, :surface_component
 
   alias SurfaceDemo.Accounts
+
+  alias Surface.Components.Form
+  alias Surface.Components.Form.{Field, Label, TextInput, NumberInput, Submit, ErrorTag}
+
+  prop(user, :map, required: true)
+  prop(action, :atom, required: true)
+  prop(return_to, :string, required: true)
 
   @impl true
   def update(%{user: user} = assigns, socket) do

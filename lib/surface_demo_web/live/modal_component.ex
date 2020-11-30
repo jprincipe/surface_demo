@@ -1,19 +1,24 @@
 defmodule SurfaceDemoWeb.ModalComponent do
-  use SurfaceDemoWeb, :live_component
+  use SurfaceDemoWeb, :surface_component
+
+  alias Surface.Components.LivePatch
+
+  prop(title, :string, required: true)
+  prop(return_to, :string, required: true)
 
   @impl true
   def render(assigns) do
-    ~L"""
-    <div id="<%= @id %>" class="phx-modal"
+    ~H"""
+    <div id="{{ @id }}" class="phx-modal"
       phx-capture-click="close"
       phx-window-keydown="close"
       phx-key="escape"
-      phx-target="#<%= @id %>"
       phx-page-loading>
 
       <div class="phx-modal-content">
-        <%= live_patch raw("&times;"), to: @return_to, class: "phx-modal-close" %>
-        <%= live_component @socket, @component, @opts %>
+        <LivePatch label="X" to="{{ @return_to }}" class="phx-modal-close"/>
+        <h2>{{ @title }}</h2>
+        <slot/>
       </div>
     </div>
     """
