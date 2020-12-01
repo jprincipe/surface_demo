@@ -9,11 +9,11 @@ defmodule SurfaceDemoWeb.ModalComponent do
   @impl true
   def render(assigns) do
     ~H"""
-    <div id="{{ @id }}" class="phx-modal"
-      phx-capture-click="close"
-      phx-window-keydown="close"
-      phx-key="escape"
-      phx-page-loading>
+    <div id={{ @id }} class="phx-modal"
+       :on-capture-click="close"
+       :on-window-keydown="close"
+       phx-key="escape"
+       phx-page-loading>
 
       <div class="phx-modal-content">
         <LivePatch label="X" to="{{ @return_to }}" class="phx-modal-close"/>
