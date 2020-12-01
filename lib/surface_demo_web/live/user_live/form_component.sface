@@ -1,4 +1,4 @@
-<Form for={{ assigns.changeset }} change="validate" submit="save">
+<Form for={{ assigns.changeset }} change="validate" submit="save" opts={{ id: "user-form" }}>
   <Field name="name">
     <Label/>
     <TextInput/>
